@@ -1,4 +1,3 @@
-import "./styles.css";
 import { getBox, renderLoaded } from "./box.js";
 
 var boxObject1 = getBox("blue");

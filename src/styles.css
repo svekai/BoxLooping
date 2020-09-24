@@ -1,3 +1,11 @@
-body {
-  font-family: sans-serif;
+.box-wrapper {
+  display: grid;
+  grid-template-columns: repeat(10, 30px);
+  padding: 25px;
+}
+
+.box {
+  border: solid 3px black;
+  height: 30px;
+  width: 30px;
 }
