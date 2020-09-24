@@ -1,8 +1,12 @@
 import "./styles.css";
 
+var boxJson = {
+  color: "blue",
+  visible: true
+};
 var box =
-  '<div style="border: solid 3px black; background-color:blue; height:25px; width:25px;"></div>';
+  '<div style="border: solid 3px black; background-color:' +
+  boxJson.color +
+  '; height:25px; width:25px;"></div>';
 
-window.setTimeout(function () {
-  document.getElementById("app").innerHTML = box + box;
-}, 1000);
+document.getElementById("app").innerHTML = box + box;
