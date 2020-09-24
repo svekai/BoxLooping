@@ -1,10 +1,20 @@
 import "./styles.css";
-import { getBox } from "./box.js";
+import { getBox, renderLoaded } from "./box.js";
 
-var box =
-  '<div style="border: solid 3px black; background-color:' +
-  getBox("blue").color +
-  '; height:25px; width:25px;">' +
-  "</div>";
+var boxObject1 = getBox("blue");
+var boxObject2 = getBox("purple");
+var boxes = [];
 
-document.getElementById("app").innerHTML = box + box;
+boxes.push(boxObject1);
+boxes.push(boxObject2);
+
+function makeBoxRed(box) {
+  box.color = "red";
+}
+
+renderLoaded(boxes);
+
+window.setTimeout(function () {
+  makeBoxRed(boxes[0]);
+  renderLoaded(boxes);
+}, 2000);
