@@ -29,15 +29,22 @@ function makeBoxInVisible(box) {
   box.visible = false;
 }
 
-renderMatrix(boxes2D);
+renderRow(boxes);
+callMethodForEveryBoxOneSecondApart(myFunction, boxes);
 //renderRow(boxes);
 //callMethodInOneSecond(myFunction);
 
-function myFunction() {
-  changeColorOfBox(boxes[0], "red");
-  renderRow(boxes);
+function myFunction(box) {
+  changeColorOfBox(box, "red");
 }
 
-function callMethodInOneSecond(myAwesomeFunction) {
-  window.setTimeout(myFunction(), 1000);
+function callMethodForEveryBoxOneSecondApart(myAwesomeFunction, boxes) {
+  var timer = 1000;
+  boxes.forEach((box) => {
+    window.setTimeout(function () {
+      myAwesomeFunction(box);
+      renderRow(boxes);
+    }, timer);
+    timer += 1000;
+  });
 }
