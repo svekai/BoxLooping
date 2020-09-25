@@ -1,11 +1,19 @@
 .box-wrapper {
   display: grid;
-  grid-template-columns: repeat(10, 30px);
+  grid-template-columns: 10%;
+  grid-template-rows: 10%;
   padding: 25px;
 }
 
 .box {
-  border: solid 3px black;
   height: 30px;
   width: 30px;
+}
+
+.border {
+  border: solid 1px black;
+}
+
+.table {
+  border-spacing: 0px;
 }

@@ -1,19 +1,43 @@
-import { getBox, renderLoaded } from "./box.js";
+import { getBox, renderRow, renderMatrix } from "./box.js";
 
 var boxObject1 = getBox("blue");
 var boxObject2 = getBox("purple");
+makeBoxInVisible(boxObject2);
 var boxes = [];
 
 boxes.push(boxObject1);
 boxes.push(boxObject2);
+boxes.push(getBox("green"));
 
-function makeBoxRed(box) {
-  box.color = "red";
+var boxes2D = [];
+boxes2D.push(boxes);
+boxes2D.push(boxes);
+
+function changeColorOfBox(box, color) {
+  box.color = color;
 }
 
-renderLoaded(boxes);
+function boxIsOfColor(box, color) {
+  return box.color === color;
+}
 
-window.setTimeout(function () {
-  makeBoxRed(boxes[0]);
-  renderLoaded(boxes);
-}, 2000);
+function makeBoxVisible(box) {
+  box.visible = true;
+}
+
+function makeBoxInVisible(box) {
+  box.visible = false;
+}
+
+renderMatrix(boxes2D);
+//renderRow(boxes);
+//callMethodInOneSecond(myFunction);
+
+function myFunction() {
+  changeColorOfBox(boxes[0], "red");
+  renderRow(boxes);
+}
+
+function callMethodInOneSecond(myAwesomeFunction) {
+  window.setTimeout(myFunction(), 1000);
+}
